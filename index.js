@@ -98,8 +98,8 @@ const howSum = (targetedSum, numArr, memo = {}) => {
   if (targetedSum < 0) return null;
 
   for (let num of numArr) {
-    const remainder = targetedSum - num;
-    const remainderResult = howSum(remainder, numArr, memo);
+    const remainderA = targetedSum - num;
+    const remainderResult = howSum(remainderA, numArr, memo);
     if (remainderResult !== null) {
       memo[targetedSum] = [...remainderResult, num];
       return memo[targetedSum];
