@@ -92,20 +92,20 @@ console.log(canSum(307, [44, 34, 33]));
  * howSum(8, [2, 3, 5]) ---> [3, 5] or [2, 2, 2, 2]
  */
 
-const howSum = (targetSum, numbers, memo = {}) => {
-  if (targetSum in memo) return memo[targetSum];
-  if (targetSum === 0) return [];
-  if (targetSum < 0) return null;
+const howSum = (targetedSum, numArr, memo = {}) => {
+  if (targetedSum in memo) return memo[targetedSum];
+  if (targetedSum === 0) return [];
+  if (targetedSum < 0) return null;
 
-  for (let num of numbers) {
-    const remainder = targetSum - num;
-    const remainderResult = howSum(remainder, numbers, memo);
+  for (let num of numArr) {
+    const remainder = targetedSum - num;
+    const remainderResult = howSum(remainder, numArr, memo);
     if (remainderResult !== null) {
-      memo[targetSum] = [...remainderResult, num];
-      return memo[targetSum];
+      memo[targetedSum] = [...remainderResult, num];
+      return memo[targetedSum];
     }
   }
-  memo[targetSum] = null;
+  memo[targetedSum] = null;
   return null;
 };
 
